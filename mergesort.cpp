@@ -47,6 +47,7 @@ void mergeSort(vector<int> &a, vector<int> &tmp, int left, int right) {
     if (left < right) {
 
         int middle = (right + left) / 2;
+
         mergeSort(a, tmp, left, middle);//left recursion
         mergeSort(a, tmp, middle + 1, right);//right recursion
         mergeSortedLists(a, tmp, left, middle, right);//merging of 2 sorted
