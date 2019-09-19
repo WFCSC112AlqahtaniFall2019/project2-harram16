@@ -5,19 +5,21 @@ using namespace std;
 // function declarations
 
 void mergeSortedLists(vector<int> &a, vector<int> &tmp, int left, int middle, int right) {
-    int t = 0;
+    int t = left;
     int i = left;
     int j = middle + 1;
     //comparing un-merged vector- sorting
     while (i <= middle && j <= right) {
         if (a[i] < a[j]) {
             tmp[t] = a[i];
-            i++;
             t++;
+            i++;
+
+
         } else {
             tmp[t] = a[j];
-            j++;
             t++;
+            j++;
         }
 
     }
@@ -35,6 +37,7 @@ void mergeSortedLists(vector<int> &a, vector<int> &tmp, int left, int middle, in
         tmp[t] = a[j];
         t++;
         j++;
+
     }
 
     for (int k = left; k <= right; k++) {
@@ -68,8 +71,8 @@ int main() {
 
     // unit test for merge
     /* your code here */
-    vector<int> test = {2, 1, 5, 3};
-    vector<int> test2(5);
+    vector<int> test = {50, 160, 3, 50};
+    vector<int> test2(4);
     mergeSortedLists(test, test2, 0, 1, 3);
     cout << "Unit Test for Merge Function:" << endl;
     for (int i = 0; i < test.size(); i++) {
